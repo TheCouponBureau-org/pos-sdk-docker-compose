@@ -21,9 +21,16 @@ services:
     restart: always
     ports:
       - "6372:6379"  # Maps Redis internal port 6379 to 6372 externally
+    volumes:
+      - redis_data:/data  # Persist Redis data in a named volume
     networks:
       - app_network
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]  # Enable data persistence
 
 networks:
   app_network:
     driver: bridge
+
+volumes:
+  redis_data:
+    driver: local  # Creates a persistent volume
