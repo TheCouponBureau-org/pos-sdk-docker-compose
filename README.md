@@ -46,6 +46,7 @@ If you want to see logs of the service, run the following command:
 
 ```
 docker logs -f --tail 100 pos-sdk
+```
 
 You should see logs like this
 
