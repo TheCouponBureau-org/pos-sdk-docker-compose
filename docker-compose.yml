@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  pos-sdk:
+    image: couponbureau/pos-sdk:latest
+    container_name: pos-sdk
+    restart: always
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    networks:
+      - app_network
+
+  redis:
+    image: redis:alpine
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6372:6379"  # Maps Redis internal port 6379 to 6372 externally
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
