@@ -18,16 +18,25 @@ password: TCB123$$%%
 
 After login, you will see Login succeeded message in the terminal.
 
+# Step 5
+Run the following command to start the service:
+
 ```
 docker-compose up -d
 ```
 
-# Step 5
+# Step 6
 Open your browser and go to http://localhost:3000/
 
-# Step 6
+# Step 7
 If you want to stop the service, run the following command:
 
 ```
 docker-compose down
 ```
+
+# Step 8
+If you want to see logs of the service, run the following command:
+
+```
+docker logs -f --tail 100 pos-sdk
