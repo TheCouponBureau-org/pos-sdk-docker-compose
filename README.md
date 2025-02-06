@@ -11,6 +11,14 @@ Open terminal or command prompt and go to the folder where you downloaded docker
 Run the following command:
 
 ```
+docker login
+```
+username: thecouponbureau
+password: TCB123$$%%
+
+After login, you will see Login succeeded message in the terminal.
+
+```
 docker-compose up -d
 ```
 
