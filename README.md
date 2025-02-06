@@ -58,7 +58,7 @@ Synced  ...
 Synced  ..
 ```
 
-POS SDK endpoint is now ready to accept validation request. URL to vlidate https://localhost:3000/test_validate
+POS SDK endpoint is now ready to accept validation request. URL to vlidate http://localhost:3000/test_validate
 
 Sample input
 
