@@ -84,3 +84,18 @@ Sample input
   ]
 }
 ```
+
+# Step 9
+To update docker image:
+
+```
+docker-compose down
+```
+
+```
+docker-compose pull
+```
+
+```
+docker-compose up -d
+```
