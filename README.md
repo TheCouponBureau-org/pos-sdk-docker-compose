@@ -55,9 +55,6 @@ You should see logs like this
 ```
 Redis connected
 Redis ready
-Synced  ...
-Synced  ...
-Synced  ..
 ```
 
 POS SDK endpoint is now ready to accept validation request. URL to vlidate http://localhost:3000/test_validate
