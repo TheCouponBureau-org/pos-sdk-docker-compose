@@ -6,6 +6,8 @@ You can skip the docker account creation step inside docker desktop.
 # Step 2
 Download the file docker-compose.yml from https://github.com/TheCouponBureau-org/pos-sdk-docker-compose/blob/86a9c5bab8d43f3fff4593e474fc60c7d2e438ea/docker-compose.yml
 
+Download the file squid.conf from 
+
 # Step 3
 Open terminal or command prompt and go to the folder where you downloaded docker-compose.yml file.
 

@@ -7,11 +7,15 @@ services:
     restart: always
     depends_on:
       - redis
+      - squid_proxy
     ports:
       - "3000:3000"
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - HTTP_PROXY=http://squid_proxy:3128
+      - HTTPS_PROXY=http://squid_proxy:3128
+      - NO_PROXY=localhost,127.0.0.1,*.thecouponbureau.org,api.try.thecouponbureau.org,api.portal.thecouponbureau.org,host.docker.internal
     networks:
       - app_network
 
@@ -20,12 +24,23 @@ services:
     container_name: redis_cache
     restart: always
     ports:
-      - "6372:6379"  # Maps Redis internal port 6379 to 6372 externally
+      - "6372:6379"
     volumes:
-      - redis_data:/data  # Persist Redis data in a named volume
+      - redis_data:/data
     networks:
       - app_network
-    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]  # Enable data persistence
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
+
+  squid_proxy:
+    image: sameersbn/squid:latest
+    container_name: squid_proxy
+    restart: always
+    ports:
+      - "3128:3128"  # Expose Squid proxy
+    networks:
+      - app_network
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf:ro  # Mount custom Squid config
 
 networks:
   app_network:
@@ -33,4 +48,4 @@ networks:
 
 volumes:
   redis_data:
-    driver: local  # Creates a persistent volume
+    driver: local
