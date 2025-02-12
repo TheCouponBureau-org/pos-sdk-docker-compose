@@ -9,7 +9,7 @@ Download the file docker-compose.yml from https://github.com/TheCouponBureau-org
 Download the file squid.conf from https://github.com/TheCouponBureau-org/pos-sdk-docker-compose/blob/0ada0ecd43d39b601b692efc19944ca4cd7d7069/squid.conf
 
 # Step 3
-Open terminal or command prompt and go to the folder where you downloaded docker-compose.yml file.
+Open terminal or command prompt and go to the folder where you downloaded docker-compose.yml and squid.conf file.
 
 # Step 4
 Run the following command:
